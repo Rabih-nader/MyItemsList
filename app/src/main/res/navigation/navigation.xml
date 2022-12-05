@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/viewItems">
+
+    <fragment
+        android:id="@+id/viewItems"
+        android:name="com.example.myitemslist.ViewItems"
+        android:label="fragment_view_items"
+        tools:layout="@layout/fragment_view_items" >
+        <action
+            android:id="@+id/action_viewItems_to_addItems"
+            app:destination="@id/addItems" />
+        <action
+            android:id="@+id/action_viewItems_self"
+            app:destination="@id/viewItems" />
+        <action
+            android:id="@+id/action_viewItems_to_fetchDataFragment"
+            app:destination="@id/fetchDataFragment" />
+        <action
+            android:id="@+id/action_viewItems_to_editItems"
+            app:destination="@id/editItems" />
+    </fragment>
+    <fragment
+        android:id="@+id/addItems"
+        android:name="com.example.myitemslist.AddItems"
+        android:label="fragment_add_items"
+        tools:layout="@layout/fragment_add_items" >
+        <action
+            android:id="@+id/action_addItems_to_viewItems"
+            app:destination="@id/viewItems" />
+    </fragment>
+    <fragment
+        android:id="@+id/fetchDataFragment"
+        android:name="com.example.myitemslist.fetchDataFragment"
+        android:label="fragment_fetch_data"
+        tools:layout="@layout/fragment_fetch_data" >
+        <action
+            android:id="@+id/action_fetchDataFragment_to_viewItems"
+            app:destination="@id/viewItems" />
+    </fragment>
+    <fragment
+        android:id="@+id/editItems"
+        android:name="com.example.myitemslist.EditItems"
+        android:label="fragment_edit_items"
+        tools:layout="@layout/fragment_edit_items" >
+        <action
+            android:id="@+id/action_editItems_to_viewItems"
+            app:destination="@id/viewItems" />
+        <argument android:name="itemId"
+            app:argType="string" />
+        <argument android:name="itemName"
+            app:argType="string" />
+        <argument android:name="itemDescription"
+            app:argType="string" />
+    </fragment>
+</navigation>
